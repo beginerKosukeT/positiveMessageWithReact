@@ -1,5 +1,5 @@
 # Positive Message with React
-![logo-react](https://github.com/beginerKosukeT/positiveMessageWithReact/assets/144611948/3a859423-b920-4e31-bd5f-094329f37029)
+![logo-react](https://github.com/beginerKosukeT/positiveMessageWithReact/assets/144611948/b16001ba-d424-425b-b0f1-5f9aec164a44)
 
 - ### プログラム概要
   - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成中
