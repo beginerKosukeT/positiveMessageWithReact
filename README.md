@@ -14,7 +14,7 @@
 - バックエンド：Next.js(14.2.5)
 - フロントエンド：React(18.3.1),HTML,CSS
 - DB：MongoDB
-- デプロイ先：Heroku
+- デプロイ先：Vercel
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
