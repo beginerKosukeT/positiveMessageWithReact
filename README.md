@@ -8,7 +8,7 @@
     - SPA化済み
   - フロントエンドを中心にいくつかの機能を追加予定
 - ### 公開先
-  <a href="https://positive-message-254febcb568f.herokuapp.com/regisration">Positive Message wit React</a>
+  <a href="https://positive-message-with-react-khynfksd8-beginerkosukets-projects.vercel.app/user/login">Positive Message with React</a>
 
 ## 使用技術
 - バックエンド：Next.js(14.2.5)
