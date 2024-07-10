@@ -3,7 +3,7 @@
 
 - ### プログラム概要
   - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成中
-    - ログインと新規ユーザー登録機能のみ実装済み
+    - ログインと新規ユーザー登録機能のみ実装済み(ログイン結果・新規ユーザー登録結果まで少し時間がかかります)
     - DBやトークンを用いてバックエンドも実装済み
     - SPA化済み
   - フロントエンドを中心にいくつかの機能を追加予定
