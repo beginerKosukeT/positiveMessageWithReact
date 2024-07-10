@@ -14,7 +14,6 @@
 - バックエンド：Next.js(14.2.5)
 - フロントエンド：React(18.3.1),HTML,CSS
 - DB：MongoDB
-- 音声の読み上げ：Web Speech API
 - デプロイ先：Heroku
 
 ## 画像ダウンロード元
