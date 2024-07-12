@@ -14,6 +14,7 @@
 - バックエンド：Next.js(14.2.5)
 - フロントエンド：React(18.3.1),HTML,CSS
 - DB：MongoDB
+- トークン：JSON Web Token
 - デプロイ先：Vercel
 
 ## 画像ダウンロード元
