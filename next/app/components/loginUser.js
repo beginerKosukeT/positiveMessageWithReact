@@ -7,7 +7,7 @@ const LoginUser = () => {
     if (loginUser.email) {
         return (
             <div className="login-user put-on-end margin-bottom">
-                <Image src={`/icons/sg${loginUser.icon}.png`} width={100} height={100} alt="user-icon" className="user-icon" />
+                <Image src={`/icons/sg${loginUser.icon}.png`} width={100} height={100} alt="user-icon" className="user-icon" priority />
                 {loginUser.name}さん
             </div>
         )
