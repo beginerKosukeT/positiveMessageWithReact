@@ -48,8 +48,8 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
                 <div className="grid-container-icon margin-bottom">
                     {icons.map(num =>
-                        <Image src={`/icons/sg${num}.png`} width={50} height={50} alt={`user-icon-${num}`} key={`user-icon-${num}`} className={num == icon ? "selected-icon" : ""}
-                            onClick={() => setIcon(num)}
+                        <Image src={`/icons/sg${num}.png`} width={50} height={50} alt={`user-icon-${num}`} key={`user-icon-${num}`} priority
+                            className={num == icon ? "selected-icon" : ""} onClick={() => setIcon(num)}
                         />
                     )}
                 </div>
