@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import LoginUser from "./components/loginUser"
 
 const getAllItems = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readall`, { cache: "no-store" })
@@ -13,7 +12,6 @@ const ReadAllItems = async () => {
     const allItems = await getAllItems()
     return (
         <div>
-            <LoginUser />
             <div className="grid-container-in">
                 {allItems.map(item =>
                     <Link href={`/item/readsingle/${item._id}`} key={item._id}>

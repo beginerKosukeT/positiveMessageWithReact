@@ -3,15 +3,12 @@ import { useState } from "react"
 import useAuth from "../../utils/useAuth"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import LoginUser from "../../components/loginUser"
 
 
 const Login = () => {
     const [email, setEmail] = useState("test@gmail.com")
     const [password, setPassword] = useState("test123")
     const loginUser = useAuth()
-    // const [name, setName] = useState("")
-    // const [icon, setIcon] = useState("")
     const router = useRouter()
 
     const handleSubmit = async (e) => {
@@ -29,23 +26,9 @@ const Login = () => {
                 })
             })
             const jsonData = await response.json()
-            localStorage.setItem("token", jsonData.token)
-
-            //↓要修正
-            // const token = localStorage.getItem("token")
-            // if (!token) {
-            //     router.push("/user/login")
-            // }
-            // try {
-            //     const secretKey = new TextEncoder().encode("next-app")
-            //     const decodedJwt = await jwtVerify(token, secretKey)
-            // setName(decodedJwt.payload.name)
-            // setIcon(decodedJwt.payload.icon)
-            // } catch (error) {
-            //     router.push("/user/login")
-            // }
-            //↑
-
+            if (jsonData.token) {
+                localStorage.setItem("token", jsonData.token)
+            }
             alert(jsonData.message)
             if (jsonData.token) {
                 router.push("/")
@@ -55,10 +38,9 @@ const Login = () => {
         }
     }
 
-    if (loginUser.email) {
+    if (loginUser.email != "") {
         return (
             <div>
-                <LoginUser />
                 <h1>ログイン</h1>
                 <div className="login-user basic-font">
                     <Image src={`/icons/sg${loginUser.icon}.png`} width={50} height={50} alt="user-icon" className="user-icon" priority />

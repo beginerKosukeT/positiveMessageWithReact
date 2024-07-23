@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react"
-import LoginUser from "../../components/loginUser"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
@@ -14,7 +13,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch("http://localhost:3000/api/user/register", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user/register`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -28,7 +27,6 @@ const Register = () => {
                 })
             })
             const jsonData = await response.json()
-            console.log(jsonData)
             localStorage.setItem("token", jsonData.token)
             alert(jsonData.message)
             router.push("/")
@@ -36,6 +34,7 @@ const Register = () => {
             alert("ユーザー登録失敗")
         }
     }
+
     var icons = Array(45)
     for (let i = 0; i < 45; i++) {
         icons[i] = String(i + 1)
@@ -43,13 +42,12 @@ const Register = () => {
 
     return (
         <div>
-            <LoginUser />
             <h1>新規ユーザー登録</h1>
             <form onSubmit={handleSubmit}>
                 <div className="grid-container-icon margin-bottom">
                     {icons.map(num =>
                         <Image src={`/icons/sg${num}.png`} width={50} height={50} alt={`user-icon-${num}`} key={`user-icon-${num}`} priority
-                            className={num == icon ? "selected-icon" : ""} onClick={() => setIcon(num)}
+                            className={num === icon ? "selected-icon" : "hovering-icon"} onClick={() => setIcon(num)}
                         />
                     )}
                 </div>

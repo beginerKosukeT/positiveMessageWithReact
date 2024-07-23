@@ -413,6 +413,12 @@ footer {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+.hovering-icon:hover {
+  backdrop-filter: blur(2rem);
+  box-shadow: 0.4rem 0.4rem 1.3rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
 .selected-icon {
   outline: 2px solid #73ffff;
   outline-offset: -2px;
