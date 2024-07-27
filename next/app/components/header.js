@@ -12,7 +12,7 @@ const Header = () => {
             <nav>
                 <ul>
                     <li><Link href="/">人気の投稿・新作</Link></li>
-                    <li><Link href="/item/create">アイテム作成</Link></li>
+                    <li><Link href="/item/create">新規投稿</Link></li>
                     <li><Link href="/user/login">ログイン</Link></li>
                     <li><Link href="/user/register">新規ユーザー登録</Link></li>
                 </ul>

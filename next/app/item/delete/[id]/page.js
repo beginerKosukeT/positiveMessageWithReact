@@ -2,15 +2,17 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import useAuth from "../../../utils/useAuth"
+import { useRouter } from "next/navigation"
 
 const DeleteItem = (context) => {
     const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
+    const [author, setAuthor] = useState("")
     const [image, setImage] = useState("")
-    const [description, setDescription] = useState("")
+    const [message, setMessage] = useState("")
     const [email, setEmail] = useState("")
-    const [loading, setLoading] = useState(false)
+    const [load, setLoad] = useState(false)
     const loginUser = useAuth()
+    const router = useRouter()
 
     useEffect(() => {
         const getSingleItem = async (id) => {
@@ -18,11 +20,11 @@ const DeleteItem = (context) => {
             const jsonData = await response.json()
             const singleItem = jsonData.singleItem
             setTitle(singleItem.title)
-            setPrice(singleItem.price)
+            setAuthor(singleItem.author)
             setImage(singleItem.image)
-            setDescription(singleItem.description)
+            setMessage(singleItem.message)
             setEmail(singleItem.email)
-            setLoading(true)
+            setLoad(true)
         }
         getSingleItem(context.params.id)
     }, [context])
@@ -43,21 +45,30 @@ const DeleteItem = (context) => {
             })
             const jsonData = await response.json()
             alert(jsonData.message)
+            router.push("/")
         } catch (err) {
             alert("アイテム削除失敗")
         }
     }
 
-    if (loading) {
+    if (load) {
         if (loginUser.email === email) {
             return (
                 <div>
                     <h1 className="page-title">アイテム削除</h1>
+                    <h2 className="margin-bottom">下記のアイテムを削除します。取り消しはできません。</h2>
                     <form onSubmit={handleSubmit}>
-                        <h2>{title}</h2>
-                        <Image src={image} width={750} height={500} alt="item-image" priority />
-                        <h3>¥{price}</h3>
-                        <p>{description}</p>
+                        <div className="grid-container-si border margin-bottom">
+                            <div>
+                                <Image src={image} width={750} height={500} alt="item-image" priority />
+                            </div>
+                            <div>
+                                <h1>{title}</h1>
+                                <h2>{author}</h2>
+                                <hr />
+                                <p>{message}</p>
+                            </div>
+                        </div>
                         <button>削除</button>
                     </form>
                 </div>

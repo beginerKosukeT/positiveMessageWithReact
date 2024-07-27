@@ -2,12 +2,13 @@
 import { useState } from "react"
 import useAuth from "../../utils/useAuth"
 import ImgInput from "../../components/imgInput"
+import { useRouter } from "next/navigation"
 
 const CreateItem = () => {
     const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
     const [image, setImage] = useState("")
-    const [description, setDescription] = useState("")
+    const [message, setMessage] = useState("")
+    const router = useRouter()
     const loginUser = useAuth()
 
     const handleSubmit = async (e) => {
@@ -22,14 +23,15 @@ const CreateItem = () => {
                 },
                 body: JSON.stringify({
                     title: title,
-                    price: price,
+                    author: loginUser.name,
                     image: image,
-                    description: description,
+                    message: message,
                     email: loginUser.email
                 })
             })
             const jsonData = await response.json()
             alert(jsonData.message)
+            router.push("/")
         } catch (err) {
             alert("アイテム作成失敗")
         }
@@ -40,10 +42,9 @@ const CreateItem = () => {
                 <h1 className="page-title">アイテム作成</h1>
                 <ImgInput setImage={setImage} />
                 <form onSubmit={handleSubmit}>
-                    <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="アイテム名" required />
-                    <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" name="price" placeholder="価格" required />
+                    <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="タイトル" required />
                     <input value={image} onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="画像" required />
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} name="description" rows={15} placeholder="商品説明" required></textarea>
+                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={15} placeholder="本文" required></textarea>
                     <button>作成</button>
                 </form>
             </div>

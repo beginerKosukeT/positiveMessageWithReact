@@ -4,11 +4,11 @@ import useAuth from "../../../utils/useAuth"
 
 const UpdateItem = (context) => {
     const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
+    const [author, setAuthor] = useState("")
     const [image, setImage] = useState("")
-    const [description, setDescription] = useState("")
+    const [message, setMessage] = useState("")
     const [email, setEmail] = useState("")
-    const [loading, setLoading] = useState(false) 
+    const [load, setLoad] = useState(false) 
 
     const loginUser = useAuth() 
 
@@ -18,14 +18,14 @@ const UpdateItem = (context) => {
             const jsonData = await response.json() 
             const singleItem = jsonData.singleItem         
             setTitle(singleItem.title)
-            setPrice(singleItem.price)
+            setAuthor(singleItem.author)
             setImage(singleItem.image)
-            setDescription(singleItem.description)
+            setMessage(singleItem.message)
             setEmail(singleItem.email)
-            setLoading(true)  
+            setLoad(true)  
         }
         getSingleItem(context.params.id) 
-    }, [context])  
+    }, [context])
 
     const handleSubmit = async(e) => {
         e.preventDefault()  
@@ -39,9 +39,9 @@ const UpdateItem = (context) => {
                 },
                 body: JSON.stringify({
                     title: title,
-                    price: price,
+                    author: author,
                     image: image,
-                    description: description,
+                    message: message,
                     email: loginUser.email 
                 })
             })
@@ -52,17 +52,17 @@ const UpdateItem = (context) => {
         }
     } 
 
-    if(loading){ 
+    if(load){ 
         if(loginUser.email === email){
         return (
             <div>
                 <h1 className="page-title">アイテム編集</h1>
                 <form onSubmit={handleSubmit}>
-                    <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="アイテム名" required/>
-                    <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" name="price" placeholder="価格" required/>
+                    <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="タイトル" required/>
+                    <input value={author} onChange={(e) => setAuthor(e.target.value)} type="text" name="author" placeholder="作者" required/>
                     <input value={image} onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="画像" required/>
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} name="description" rows={15} placeholder="商品説明" required></textarea>
-                    <button>編集</button>
+                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={15} placeholder="本文" required></textarea>
+                    <button>保存</button>
                 </form>
             </div>
         )

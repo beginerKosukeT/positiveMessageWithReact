@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation"
 
 
 const Login = () => {
-    const [email, setEmail] = useState("test@gmail.com")
-    const [password, setPassword] = useState("test123")
+    const [email, setEmail] = useState("test1@gmail.com")
+    const [password, setPassword] = useState("123456")
     const loginUser = useAuth()
     const router = useRouter()
 
@@ -47,16 +47,19 @@ const Login = () => {
                     {loginUser.name}さんがログイン済みです。以下を入力して、ユーザーを切り替える事ができます。
                 </div>
                 <div className="login-switch-information margin-bottom">
-                    【monotein】<br />
-                    ・Email: dummy@gmail.com<br />
+                    【テストユーザー1】<br />
+                    ・Email: test1@gmail.com<br />
                     ・Password: mono-123<br />
-                    【ユーザーテスト】<br />
-                    ・Email: test@gmail.com<br />
-                    ・Password: test123
+                    【テストユーザー2】<br />
+                    ・Email: test2@gmail.com<br />
+                    ・Password: 123456<br/>
+                    【テストユーザー3】<br />
+                    ・Email: test3@gmail.com<br />
+                    ・Password: 123456
                 </div>
                 <form onSubmit={handleSubmit}>
                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required /><br />
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder="パスワード" required /><br />
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="パスワード" required /><br />
                     <button>ログイン(ユーザー切り替え)</button>
                 </form>
             </div>
@@ -67,7 +70,7 @@ const Login = () => {
                 <h1>ログイン</h1>
                 <form onSubmit={handleSubmit}>
                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required /><br />
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder="パスワード" required /><br />
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="パスワード" required /><br />
                     <button>ログイン</button>
                 </form>
             </div>

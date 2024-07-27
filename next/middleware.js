@@ -9,9 +9,9 @@ export async function middleware(request) {
     }
 
     try{
-        const secretKey = new TextEncoder().encode("next-market-app-book") 
+        const secretKey = new TextEncoder().encode("next-app") 
         const decodedJwt = await jwtVerify(token, secretKey)
-        return NextResponse.next()
+        return NextResponse.next({message: "トークンを確認しました"})
     }catch(err){
         return NextResponse.json({message: "トークンが正しくないので、ログインしてください"})
     }
