@@ -3,7 +3,7 @@
 
 - ### プログラム概要
   - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成中
-    - 音声再生機能は未実装
+    - 投稿読み上げ、検索機能は未実装
     - SPA化済み
   - フロントエンドを中心にいくつかの機能を追加予定
 - ### 公開先
@@ -11,7 +11,7 @@
 
 ## 使用技術
 - バックエンド：Next.js(14.2.5)
-- フロントエンド：React(18.3.1),HTML,CSS
+- フロントエンド：React(18.3.1), HTML, CSS
 - DB：MongoDB, Cloudinary
 - トークン：JSON Web Token
 - デプロイ先：Vercel
