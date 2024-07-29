@@ -12,13 +12,17 @@ const ReadAllItems = async () => {
     const allItems = await getAllItems()
     if (allItems.length == 0) {
         return (
-            <div className="basic-font">
-                投稿がありません。
+            <div>
+                <h1 className="page-title">新作</h1>
+                <div className="basic-font">
+                    投稿がありません。
+                </div>
             </div>
         )
     } else {
         return (
             <div>
+                <h1 className="page-title">新作</h1>
                 <div className="grid-container-in">
                     {allItems.map(item =>
                         <Link href={`/item/readsingle/${item._id}`} key={item._id} >

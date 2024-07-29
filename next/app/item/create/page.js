@@ -14,32 +14,33 @@ const CreateItem = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/create`, {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
-                },
-                body: JSON.stringify({
-                    title: title,
-                    author: loginUser.name,
-                    image: image,
-                    message: message,
-                    email: loginUser.email
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/create`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify({
+                        title: title,
+                        author: loginUser.name,
+                        image: image,
+                        message: message,
+                        email: loginUser.email
+                    })
                 })
-            })
             const jsonData = await response.json()
             alert(jsonData.message)
             router.push("/")
         } catch (err) {
-            alert("アイテム作成失敗")
+            alert("新規投稿失敗")
         }
     }
     if (loginUser.email != "") {
         return (
             <div>
-                <h1 className="page-title">アイテム作成</h1>
+                <h1 className="page-title">新規投稿</h1>
                 <ImgInput setImage={setImage} />
                 <form onSubmit={handleSubmit}>
                     <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="タイトル" required />
