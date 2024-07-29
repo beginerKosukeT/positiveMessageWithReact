@@ -218,8 +218,14 @@ header * li a:hover {
   font-weight: 400;
 }
 
+.basic-font {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
 .display-flex {
-  display:flex;
+  display: flex;
 }
 
 .put-on-end {
@@ -281,8 +287,11 @@ header * li a:hover {
 }
 
 .grid-container-in>*>*>div>h2 {
+  margin-bottom: 1rem;
+}
+
+.grid-container-in>*>*>div>h3 {
   color: #1272e0;
-  margin-bottom: 0.4rem;
 }
 
 .grid-container-in>*>*>div>p {
@@ -308,8 +317,8 @@ header * li a:hover {
   height: auto;
 }
 
-.grid-container-si h2 {
-  color: #FF63A4;
+.grid-container-si h3 {
+  color: #1272e0;
   margin: 1rem 0 2rem;
 }
 
@@ -431,7 +440,7 @@ footer {
   border-radius: 0.5rem;
 }
 
-.border{
+.border {
   border-radius: 1rem;
   border: 0.05rem solid rgb(223, 223, 223);
 }

@@ -10,24 +10,32 @@ const getAllItems = async () => {
 
 const ReadAllItems = async () => {
     const allItems = await getAllItems()
-    return (
-        <div>
-            <div className="grid-container-in">
-                {allItems.map(item =>
-                    <Link href={`/item/readsingle/${item._id}`} key={item._id} >
-                        <div className="display-flex">
-                            <Image src={item.image} width={750} height={500} alt="item-image" priority />
-                            <div>
-                                <h3>{item.title}</h3>
-                                <h2>{item.author}</h2>
-                                <p>{item.message.substring(0, 10)}...</p>
-                            </div>
-                        </div>
-                    </Link>
-                )}
+    if (allItems.length == 0) {
+        return (
+            <div className="basic-font">
+                投稿がありません。
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div>
+                <div className="grid-container-in">
+                    {allItems.map(item =>
+                        <Link href={`/item/readsingle/${item._id}`} key={item._id} >
+                            <div className="display-flex">
+                                <Image src={item.image} width={750} height={500} alt="item-image" priority />
+                                <div>
+                                    <h2>{item.title}</h2>
+                                    <h3>{item.author}</h3>
+                                    <p>{item.message.substring(0, 10)}...</p>
+                                </div>
+                            </div>
+                        </Link>
+                    )}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default ReadAllItems

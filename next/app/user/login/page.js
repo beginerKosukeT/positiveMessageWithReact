@@ -42,7 +42,7 @@ const Login = () => {
         return (
             <div>
                 <h1>ログイン</h1>
-                <div className="login-user basic-font">
+                <div className="login-user">
                     <Image src={`/icons/sg${loginUser.icon}.png`} width={50} height={50} alt="user-icon" className="user-icon" priority />
                     {loginUser.name}さんがログイン済みです。以下を入力して、ユーザーを切り替える事ができます。
                 </div>

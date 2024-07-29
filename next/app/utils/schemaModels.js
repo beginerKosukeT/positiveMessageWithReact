@@ -2,13 +2,16 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
-const ItemSchema = new Schema({
-    title: String,       
-    image: String,
-    author: String,      
-    message: String,
-    email: String,
-})
+const ItemSchema = new Schema(
+    {
+        title: String,
+        image: String,
+        author: String,
+        message: String,
+        email: String,
+    },
+    { timestamps: true }
+)
 
 const UserSchema = new Schema({
     name: {
@@ -27,7 +30,7 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
 })
 
 export const ItemModel = mongoose.models.Item || mongoose.model("Item", ItemSchema)

@@ -17,7 +17,7 @@ const ReadSingleItem = async (context) => {
             </div>
             <div>
                 <h1>{singleItem.title}</h1>
-                <h2>{singleItem.author}</h2>
+                <h3>{singleItem.author}</h3>
                 <hr />
                 <p>{singleItem.message}</p>
                 <div>
