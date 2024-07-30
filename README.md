@@ -3,7 +3,7 @@
 
 - ### プログラム概要
   - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成中
-    - 投稿読み上げ、検索機能は未実装
+    - 投稿読み上げ、お気に入り登録機能は未実装
     - SPA化済み
   - フロントエンドを中心にいくつかの機能を追加予定
 - ### 公開先
