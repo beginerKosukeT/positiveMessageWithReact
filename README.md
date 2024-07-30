@@ -21,3 +21,4 @@
 - <a href="https://sunheart-shop.com/c/gr1/san-x/sumikkogurashi"> すみっコぐらし | 丸眞オンラインショップ</a>
 - <a href="https://ja.wikipedia.org/wiki/React"> React - Wikipedia</a>
 - <a href="https://www.san-x.co.jp/blog/netshop/2017/10/facebook-7.html">サンエックスネットショップ・ブログ</a>
+- <a href="https://icons.getbootstrap.jp">Bootstrap Icons · Official open source SVG icon library for Bootstrap</a>
