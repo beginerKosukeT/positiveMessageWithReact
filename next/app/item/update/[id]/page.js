@@ -16,7 +16,7 @@ const UpdateItem = (context) => {
         const getSingleItem = async(id) => {
             const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {cache: "no-store"}) 
             const jsonData = await response.json() 
-            const singleItem = jsonData.singleItem         
+            const singleItem = jsonData.singleItem     
             setTitle(singleItem.title)
             setAuthor(singleItem.author)
             setImage(singleItem.image)

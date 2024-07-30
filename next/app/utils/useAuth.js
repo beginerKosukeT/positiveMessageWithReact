@@ -8,7 +8,6 @@ const useAuth = () => {
         email: "",
         icon: ""
     })
-
     const router = useRouter()
 
     useEffect(() => {

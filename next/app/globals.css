@@ -226,10 +226,18 @@ header * li a:hover {
 
 .display-flex {
   display: flex;
+  }
+
+.align-items-center {
+  align-items: center;
 }
 
 .put-on-end {
   justify-content: flex-end;
+}
+
+.margin-left-auto {
+  margin-left: auto;
 }
 
 .login-switch-information {
@@ -311,15 +319,14 @@ header * li a:hover {
   }
 }
 
-.grid-container-si * img {
+.grid-container-si>*>img {
   border-radius: 1rem;
   width: 100%;
   height: auto;
 }
 
-.grid-container-si h3 {
+.grid-container-si>*>*>h3 {
   color: #1272e0;
-  margin: 1rem 0 2rem;
 }
 
 .grid-container-si hr {

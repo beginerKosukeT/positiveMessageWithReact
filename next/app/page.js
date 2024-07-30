@@ -27,7 +27,7 @@ const ReadAllItems = async () => {
                     {allItems.map(item =>
                         <Link href={`/item/readsingle/${item._id}`} key={item._id} >
                             <div className="display-flex">
-                                <Image src={item.image} width={750} height={500} alt="item-image" priority />
+                                <Image src={item.image} width={100} height={100} alt="item-image" priority />
                                 <div>
                                     <h2>{item.title}</h2>
                                     <h3>{item.author}</h3>

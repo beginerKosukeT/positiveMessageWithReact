@@ -27,7 +27,8 @@ const CreateItem = () => {
                         author: loginUser.name,
                         image: image,
                         message: message,
-                        email: loginUser.email
+                        email: loginUser.email,
+                        likeNumber: 0
                     })
                 })
             const jsonData = await response.json()
