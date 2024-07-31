@@ -1,30 +1,30 @@
 import Link from "next/link"
 import Image from "next/image"
 
-const getAllItems = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readall`, { cache: "no-store" })
+const getBests = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/bests`, { cache: "no-store" })
     const jsonData = await response.json()
-    const allItems = jsonData.allItems
-    return allItems
+    const bests = jsonData.bests
+    return bests
 }
 
-const ReadAllItems = async () => {
-    const allItems = await getAllItems()
-    if (allItems.length < 1) {
+const Bests = async () => {
+    const bests = await getBests()
+    if (bests.length < 1) {
         return (
             <div>
-                <h1 className="page-title">新作</h1>
+                <h1 className="page-title">人気の投稿</h1>
                 <div className="basic-font">
-                    投稿がありません。
+                    人気の投稿がありません。
                 </div>
             </div>
         )
     } else {
         return (
             <div>
-                <h1 className="page-title">新作</h1>
+                <h1 className="page-title">人気の投稿</h1>
                 <div className="grid-container-in">
-                    {allItems.map(item =>
+                    {bests.map(item =>
                         <Link href={`/item/readsingle/${item._id}`} key={item._id} >
                             <div className="display-flex">
                                 <Image src={item.image} width={100} height={100} alt="item-image" priority />
@@ -42,4 +42,4 @@ const ReadAllItems = async () => {
     }
 }
 
-export default ReadAllItems
+export default Bests
