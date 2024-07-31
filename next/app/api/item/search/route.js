@@ -4,7 +4,6 @@ import { ItemModel } from "../../../utils/schemaModels"
 
 export async function POST(request) {
     const reqBody = await request.json()
-    console.log(reqBody.keyword)
     try {
         await connectDB()
         const foundItems = await ItemModel.find({ title: { $regex: `${reqBody.keyword}`, $options: 'i' } }).sort({ createdAt: 'desc' })

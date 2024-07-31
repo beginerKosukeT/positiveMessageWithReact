@@ -3,12 +3,16 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import useAuth from "../../../utils/useAuth"
+import { useRouter } from "next/navigation"
+import { jwtVerify } from "jose"
 
 const ReadSingleItem = (context) => {
     const [singleItem, setSingleItem] = useState({})
     const [load, setLoad] = useState(false)
-    const [liked, setLiked] = useState(false)
+    const [iliked, setIliked] = useState(false)
+    const [allLikeCount, setAllLikeCount] = useState(0)
     const loginUser = useAuth()
+    const router = useRouter()
 
     useEffect(() => {
         const getSingleItem = async (id) => {
@@ -17,35 +21,44 @@ const ReadSingleItem = (context) => {
             const itemJsonData = await itemResponse.json()
             const singleItem = itemJsonData.singleItem
             setSingleItem(singleItem)
-            //お気に入り登録状況を確認
-            const likeResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/checklike`, {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
-                },
-                body: JSON.stringify({
-                    like: {
-                        email: loginUser.email,
-                        itemId: context.params.id,
+            //ログインユーザーメールアドレス取得
+            const token = localStorage.getItem("token")
+            if (!token) {
+                router.push("/user/login")
+            }
+            try {
+                const secretKey = new TextEncoder().encode("next-app")
+                const decodedJwt = await jwtVerify(token, secretKey)
+                //likesテーブルのお気に入り登録状況確認
+                const likeResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/like`, {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem("token")}`
                     },
-                    liked: liked,
+                    body: JSON.stringify({
+                        email: decodedJwt.payload.email,
+                        itemId: id,
+                    })
                 })
-            })
-            const likeJsonData = await likeResponse.json()
-            const like = likeJsonData.like
-            if (like.length !== 0) { setLiked(true) }
-            setLoad(true)
+                const likeJsonData = await likeResponse.json()
+                if (likeJsonData.myLikeCount > 0) { setIliked(true) }
+                setAllLikeCount(likeJsonData.allLikeCount)
+                setLoad(true)
+            } catch (error) {
+                router.push("/user/login")
+            }
         }
         getSingleItem(context.params.id)
     }, [context])
 
+    // itemsテーブルのlikeNumber更新
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/like`, {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
@@ -56,14 +69,15 @@ const ReadSingleItem = (context) => {
                         email: loginUser.email,
                         itemId: context.params.id,
                     },
-                    liked: liked,
+                    iliked: iliked,
                 })
             })
             const jsonData = await response.json()
             alert(jsonData.message)
             if (jsonData.success) {
-                setLiked(!liked)
+                setIliked(!iliked)
             }
+            setAllLikeCount(jsonData.likeCountRevised)
         } catch (err) {
             alert("お気に入り登録の更新失敗")
         }
@@ -77,12 +91,13 @@ const ReadSingleItem = (context) => {
                 </div>
                 <div>
                     <h1>{singleItem.title}</h1>
-                    <div className="display-flex align-items">
+                    <div className="display-flex align-items-center">
                         <h3>{singleItem.author}</h3>
                         <div className="margin-left-auto">
                             <form onSubmit={handleSubmit}>
-                                <button>
-                                    <Image src={liked ? "/utils/hand-thumbs-up-fill.svg" : "/utils/hand-thumbs-up.svg"} width={20} height={20} alt="like" priority />
+                                <button className="display-flex align-items-center">
+                                    <Image src={iliked ? "/utils/hand-thumbs-up-fill.svg" : "/utils/hand-thumbs-up.svg"} width={20} height={20} alt="like" priority />
+                                    <div>{allLikeCount}</div>
                                 </button>
                             </form>
                         </div>
