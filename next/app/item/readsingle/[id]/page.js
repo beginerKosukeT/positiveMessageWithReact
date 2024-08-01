@@ -11,8 +11,32 @@ const ReadSingleItem = (context) => {
     const [load, setLoad] = useState(false)
     const [iliked, setIliked] = useState(false)
     const [allLikeCount, setAllLikeCount] = useState(0)
+    const [speaking, setSpeaking] = useState(false)
     const loginUser = useAuth()
     const router = useRouter()
+
+    // 読み上げ
+    const speak = (message, speaking) => {
+        if (speaking) {
+            setSpeaking(false)
+            speechSynthesis.pause()
+        } else {
+            if (speechSynthesis.paused) {
+                setSpeaking(true)
+                speechSynthesis.resume()
+            } else {
+                setSpeaking(true)
+                const uttr = new SpeechSynthesisUtterance(message);
+                uttr.lang = 'ja-JP';
+                uttr.rate = 1.1;
+                uttr.pitch = 0.9;
+                speechSynthesis.speak(uttr);
+                uttr.addEventListener("end", (event) => {
+                    setSpeaking(false)
+                });
+            }
+        }
+    }
 
     useEffect(() => {
         const getSingleItem = async (id) => {
@@ -92,13 +116,22 @@ const ReadSingleItem = (context) => {
                 <div>
                     <h1>{singleItem.title}</h1>
                     <div className="display-flex align-items-center">
-                        <h3>{singleItem.author}</h3>
+                        <h3>
+                            <Link href={`/item/author/${singleItem.email}`}>
+                                {singleItem.author}
+                            </Link>
+                        </h3>
                         <div className="margin-left-auto">
                             <form onSubmit={handleSubmit}>
-                                <button className="display-flex align-items-center">
-                                    <Image src={iliked ? "/utils/hand-thumbs-up-fill.svg" : "/utils/hand-thumbs-up.svg"} width={20} height={20} alt="like" priority />
-                                    <div>{allLikeCount}</div>
-                                </button>
+                                <div className="display-flex align-items-center">
+                                    <Image src={speaking ? "/utils/pause-fill.svg" : "/utils/play-fill.svg"} width={30} height={30} className="margin-right"
+                                        onClick={() => speak(singleItem.message, speaking)} alt="item-image" priority />
+                                    <button className="display-flex align-items-center">
+                                        <Image src={iliked ? "/utils/hand-thumbs-up-fill.svg" : "/utils/hand-thumbs-up.svg"}
+                                            width={20} height={20} alt="like" priority />
+                                        <div>{allLikeCount}</div>
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

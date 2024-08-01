@@ -335,7 +335,7 @@ header * li a:hover {
   height: auto;
 }
 
-.grid-container-si>*>*>h3 {
+.grid-container-si>*>*>*>a {
   color: #1272e0;
 }
 
@@ -343,7 +343,7 @@ header * li a:hover {
   margin: 1.5rem 0;
 }
 
-.grid-container-si * a {
+.grid-container-si>*>*>a {
   padding: 0.3rem 1.7rem;
   margin-right: 1rem;
   border-radius: 0.5rem;
@@ -432,15 +432,20 @@ footer {
 }
 
 .menu-position {
-  position:relative;
+  position: relative;
   margin-top: 1rem;
   margin-left: 1.5rem;
   z-index: 1;
 }
+
 .logo-position {
-  position:relative;
+  position: relative;
   margin-top: -6.2rem;
   z-index: 0;
+}
+
+.margin-right {
+  margin-right: 1rem;
 }
 
 .grid-container-icon {
