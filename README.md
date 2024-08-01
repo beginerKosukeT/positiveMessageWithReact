@@ -2,10 +2,9 @@
 ![logo-react](https://github.com/beginerKosukeT/positiveMessageWithReact/assets/144611948/b16001ba-d424-425b-b0f1-5f9aec164a44)
 
 - ### プログラム概要
-  - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成中
-    - 投稿読み上げ機能は未実装
-    - SPA化済み
-  - フロントエンドを中心にいくつかの機能を追加予定
+  - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成
+  - SPA化や、メッセージ読み上げ機能の動的制御改善を実施
+
 - ### 公開先
   <a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
 
