@@ -12,6 +12,7 @@ const ReadSingleItem = (context) => {
     const [iliked, setIliked] = useState(false)
     const [allLikeCount, setAllLikeCount] = useState(0)
     const [speaking, setSpeaking] = useState(false)
+    const [userId, setUserId] = useState("")
     const loginUser = useAuth()
     const router = useRouter()
 
@@ -45,7 +46,7 @@ const ReadSingleItem = (context) => {
             const itemJsonData = await itemResponse.json()
             const singleItem = itemJsonData.singleItem
             setSingleItem(singleItem)
-            //ログインユーザーメールアドレス取得
+            //トークン取得
             const token = localStorage.getItem("token")
             if (!token) {
                 router.push("/user/login")
@@ -53,6 +54,20 @@ const ReadSingleItem = (context) => {
             try {
                 const secretKey = new TextEncoder().encode("next-app")
                 const decodedJwt = await jwtVerify(token, secretKey)
+                //作者のUserUD取得
+                const userIdResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify({
+                        email: singleItem.email,
+                    })
+                })
+                const userIdJsonData = await userIdResponse.json()
+                setUserId(userIdJsonData.userId)
                 //likesテーブルのお気に入り登録状況確認
                 const likeResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/like`, {
                     method: "POST",
@@ -117,7 +132,7 @@ const ReadSingleItem = (context) => {
                     <h1>{singleItem.title}</h1>
                     <div className="display-flex align-items-center">
                         <h3>
-                            <Link href={`/item/author/${singleItem.email}`}>
+                            <Link href={`/item/author/${userId}`}>
                                 {singleItem.author}
                             </Link>
                         </h3>

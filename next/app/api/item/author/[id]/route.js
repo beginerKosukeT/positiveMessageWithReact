@@ -5,9 +5,12 @@ import { ItemModel, UserModel } from "../../../../utils/schemaModels"
 export async function GET(request, context) {
     try {
         await connectDB()
-        const authorsItems = await ItemModel.find({ email: context.params.id }).sort({ createdAt: 'desc' })
+        const user = await UserModel.findOne({
+            _id: context.params.id
+        })
+        const authorsItems = await ItemModel.find({ email: user.email }).sort({ createdAt: 'desc' })
         if (authorsItems.length === 0) {
-            const author = await UserModel.findOne({ email: context.params.id })
+            const author = await UserModel.findOne({ email: user.email })
             return NextResponse.json({ message: "アイテム読み取り成功（投稿者別）", authorsItems: authorsItems, author: author })
         } else {
             return NextResponse.json({ message: "アイテム読み取り成功（投稿者別）", authorsItems: authorsItems })

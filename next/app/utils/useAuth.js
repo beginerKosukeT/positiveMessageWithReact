@@ -14,6 +14,7 @@ const useAuth = () => {
         const checkToken = async () => {
             const token = localStorage.getItem("token")
             if (!token) {
+                alert("ログインが必要です。")
                 router.push("/user/login")
             }
             
@@ -26,6 +27,7 @@ const useAuth = () => {
                     icon: decodedJwt.payload.icon
                 })
             } catch (error) {
+                alert("ログイン情報の確認に失敗しました。")
                 router.push("/user/login")
             }
         }
