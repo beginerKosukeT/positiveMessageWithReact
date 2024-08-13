@@ -14,7 +14,7 @@
 - DB：MongoDB, Cloudinary
 - トークン：JSON Web Token
 - デプロイ先：Vercel
-- ハンバーガーメニュー：Material UIのDrawerを修正したものを使用
+- ハンバーガーメニュー：Material UIのDrawerを使用
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
