@@ -1,35 +1,29 @@
 "use client"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { jwtVerify } from "jose"
+import checkLoginUser from "../utils/checkLoginUser"
 
 const LoginUser = () => {
     const [loginUser, setLoginUser] = useState({
+        _id: "",
         name: "",
         email: "",
         icon: ""
     })
     useEffect(() => {
         const checkToken = async () => {
-            const token = localStorage.getItem("token")
-            if (token) {
-                try {
-                    const secretKey = new TextEncoder().encode("next-app")
-                    const decodedJwt = await jwtVerify(token, secretKey)
-                    setLoginUser({
-                        name: decodedJwt.payload.name,
-                        email: decodedJwt.payload.email,
-                        icon: decodedJwt.payload.icon
-                    })
-                } catch (error) {
-                    console.log("トークンの読み込みに失敗しました")
-                }
-            }
+            const loginUser = await checkLoginUser()
+            setLoginUser({
+                _id: loginUser._id,
+                name: loginUser.name,
+                email: loginUser.email,
+                icon: loginUser.icon
+            })
         }
         checkToken()
-    })
+    }, [])
 
-    if (loginUser.email != "") {
+    if (loginUser._id !== "") {
         return (
             <div className="login-user put-on-end margin-bottom">
                 <Image src={`/icons/sg${loginUser.icon}.png`} width={100} height={100} alt="user-icon" className="user-icon" priority />

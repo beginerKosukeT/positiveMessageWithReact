@@ -1,16 +1,31 @@
 "use client"
-import { useState } from "react"
-import useAuth from "../../utils/useAuth"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-
+import checkLoginUser from "../../utils/checkLoginUser"
 
 const Login = () => {
     const [email, setEmail] = useState("test1@gmail.com")
     const [password, setPassword] = useState("123456")
-    const loginUser = useAuth()
     const router = useRouter()
-
+    const [loginUser, setLoginUser] = useState({
+        _id: "",
+        name: "",
+        email: "",
+        icon: ""
+    })
+    useEffect(() => {
+        const checkToken = async () => {
+            const loginUser = await checkLoginUser()
+            setLoginUser({
+                _id: loginUser._id,
+                name: loginUser.name,
+                email: loginUser.email,
+                icon: loginUser.icon
+            })
+        }
+        checkToken()
+    }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -38,7 +53,19 @@ const Login = () => {
         }
     }
 
-    if (loginUser.email != "") {
+    if (loginUser._id === "") {
+        return (
+            <div>
+                <h1>ログイン</h1>
+                <form onSubmit={handleSubmit}>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required /><br />
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="パスワード" required /><br />
+                    <button>ログイン</button>
+                </form>
+
+            </div>
+        )
+    } else {
         return (
             <div>
                 <h1>ログイン</h1>
@@ -52,7 +79,7 @@ const Login = () => {
                     ・Password: mono-123<br />
                     【テストユーザー2】<br />
                     ・Email: test2@gmail.com<br />
-                    ・Password: 123456<br/>
+                    ・Password: 123456<br />
                     【テストユーザー3】<br />
                     ・Email: test3@gmail.com<br />
                     ・Password: 123456
@@ -61,17 +88,6 @@ const Login = () => {
                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required /><br />
                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="パスワード" required /><br />
                     <button>ログイン(ユーザー切り替え)</button>
-                </form>
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                <h1>ログイン</h1>
-                <form onSubmit={handleSubmit}>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required /><br />
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="パスワード" required /><br />
-                    <button>ログイン</button>
                 </form>
             </div>
         )

@@ -15,6 +15,7 @@ export async function POST(request) {
                 const secretKey = new TextEncoder().encode("next-app")
 
                 const payload = {
+                    _id: savedUserData._id,
                     name: savedUserData.name,
                     email: reqBody.email,
                     icon: savedUserData.icon

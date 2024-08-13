@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import useAuth from "../../../utils/useAuth"
+import checkLoginUser from "../../../utils/checkLoginUser"
 import { useRouter } from "next/navigation"
-import { jwtVerify } from "jose"
 
 const ReadSingleItem = (context) => {
     const [singleItem, setSingleItem] = useState({})
@@ -12,10 +11,14 @@ const ReadSingleItem = (context) => {
     const [iliked, setIliked] = useState(false)
     const [allLikeCount, setAllLikeCount] = useState(0)
     const [speaking, setSpeaking] = useState(false)
-    const [userId, setUserId] = useState("")
-    const loginUser = useAuth()
+    const [userId, setUserId] = useState("")//投稿者のUserId
+    const [loginUser, setLoginUser] = useState({
+        _id: "",
+        name: "",
+        email: "",
+        icon: ""
+    })
     const router = useRouter()
-
     // 読み上げ
     const speak = (message, speaking) => {
         if (speaking) {
@@ -40,27 +43,29 @@ const ReadSingleItem = (context) => {
     }
 
     useEffect(() => {
+        const checkToken = async () => {
+            const loginUser = await checkLoginUser()
+            setLoginUser({
+                _id: loginUser._id,
+                name: loginUser.name,
+                email: loginUser.email,
+                icon: loginUser.icon
+            })
+        }
+
         const getSingleItem = async (id) => {
             //投稿の詳細を取得
             const itemResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, { cache: "no-store" })
             const itemJsonData = await itemResponse.json()
             const singleItem = itemJsonData.singleItem
             setSingleItem(singleItem)
-            //トークン取得
-            const token = localStorage.getItem("token")
-            if (!token) {
-                router.push("/user/login")
-            }
             try {
-                const secretKey = new TextEncoder().encode("next-app")
-                const decodedJwt = await jwtVerify(token, secretKey)
-                //作者のUserUD取得
+                //投稿作者のUserUD取得
                 const userIdResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {
                     method: "POST",
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${localStorage.getItem("token")}`
                     },
                     body: JSON.stringify({
                         email: singleItem.email,
@@ -68,16 +73,17 @@ const ReadSingleItem = (context) => {
                 })
                 const userIdJsonData = await userIdResponse.json()
                 setUserId(userIdJsonData.userId)
+                //ログインユーザー取得
+                const lu = await checkLoginUser()
                 //likesテーブルのお気に入り登録状況確認
                 const likeResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/like`, {
                     method: "POST",
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${localStorage.getItem("token")}`
                     },
                     body: JSON.stringify({
-                        email: decodedJwt.payload.email,
+                        email: lu.email,
                         itemId: id,
                     })
                 })
@@ -89,6 +95,8 @@ const ReadSingleItem = (context) => {
                 router.push("/user/login")
             }
         }
+
+        checkToken()
         getSingleItem(context.params.id)
     }, [context])
 
@@ -101,7 +109,6 @@ const ReadSingleItem = (context) => {
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
                     like: {
