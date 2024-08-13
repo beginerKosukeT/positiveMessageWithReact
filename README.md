@@ -3,7 +3,7 @@
 
 - ### プログラム概要
   - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成
-  - SPA化や、メッセージ読み上げ機能の動的制御改善を実施
+  - SPA化や、メッセージ読み上げ機能の動的制御改善、メニューの改善を実施
 
 - ### 公開先
   <a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
