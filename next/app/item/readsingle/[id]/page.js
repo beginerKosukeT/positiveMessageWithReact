@@ -103,29 +103,34 @@ const ReadSingleItem = (context) => {
     // itemsテーブルのlikeNumber更新
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/like`, {
-                method: "PUT",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    like: {
-                        email: loginUser.email,
-                        itemId: context.params.id,
+        if (loginUser._id === "") {
+            router.push("/user/login")
+            alert("ログインが必要です。")
+        }else{
+            try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/like`, {
+                    method: "PUT",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
                     },
-                    iliked: iliked,
+                    body: JSON.stringify({
+                        like: {
+                            email: loginUser.email,
+                            itemId: context.params.id,
+                        },
+                        iliked: iliked,
+                    })
                 })
-            })
-            const jsonData = await response.json()
-            alert(jsonData.message)
-            if (jsonData.success) {
-                setIliked(!iliked)
+                const jsonData = await response.json()
+                alert(jsonData.message)
+                if (jsonData.success) {
+                    setIliked(!iliked)
+                }
+                setAllLikeCount(jsonData.likeCountRevised)
+            } catch (err) {
+                alert("お気に入り登録の更新失敗")
             }
-            setAllLikeCount(jsonData.likeCountRevised)
-        } catch (err) {
-            alert("お気に入り登録の更新失敗")
         }
     }
 
@@ -167,7 +172,7 @@ const ReadSingleItem = (context) => {
             </div>
         )
     } else {
-        return <h1>Loading...</h1>
+        return <h1 className="margin-top">Loading...</h1>
     }
 }
 

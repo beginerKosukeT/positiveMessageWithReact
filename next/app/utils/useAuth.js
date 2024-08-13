@@ -26,6 +26,7 @@ const useAuth = () => {
                     })
                 } catch (error) {
                     alert("ログイン情報の確認に失敗しました。")
+                    localStorage.removeItem("token")
                     router.push("/user/login")
                 }
             } else {

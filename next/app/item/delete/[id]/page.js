@@ -75,11 +75,11 @@ const DeleteItem = (context) => {
             )
         } else {
             return <div>
-                <h1>権限がありません</h1>
+                <h1 className="margin-top">権限がありません</h1>
             </div>
         }
     } else {
-        return <h1>Loading...</h1>
+        return <h1 className="margin-top">Loading...</h1>
     }
 }
 

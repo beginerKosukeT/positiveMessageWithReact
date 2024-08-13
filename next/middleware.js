@@ -3,17 +3,16 @@ import { jwtVerify } from "jose"
 
 export async function middleware(request) {
     const token = await request.headers.get("Authorization")?.split(" ")[1]
-    
-    if(!token){
-        return NextResponse.json({message: "トークンがありません"})
-    }
-
-    try{
-        const secretKey = new TextEncoder().encode("next-app") 
-        const decodedJwt = await jwtVerify(token, secretKey)
-        return NextResponse.next({message: "トークンを確認しました"})
-    }catch(err){
-        return NextResponse.json({message: "トークンが正しくないので、ログインしてください"})
+    if (token) {
+        try {
+            const secretKey = new TextEncoder().encode("next-app")
+            const decodedJwt = await jwtVerify(token, secretKey)
+            return NextResponse.next({ message: "トークンを確認しました" })
+        } catch (err) {
+            return NextResponse.json({ message: "トークンが正しくないので、ログインしてください" })
+        }
+    } else {
+        return NextResponse.json({ message: "トークンがありません" })
     }
 }
 

@@ -67,10 +67,10 @@ const UpdateItem = (context) => {
             </div>
         )
         }else{                               
-            return <h1>権限がありません</h1>    
+            return <h1 className="margin-top">権限がありません</h1>    
         }   
     }else{                                  
-        return <h1>Loading...</h1>          
+        return <h1 className="margin-top">Loading...</h1>          
     }     
 }
 

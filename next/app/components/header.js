@@ -13,8 +13,8 @@ const Header = () => {
 
     return (
         <header>
-            <Menu open={open} setOpen={setOpen}/>
-            <Image src="/utils/list.svg" width={50} height={50} alt="header-image" onClick={toggleDrawer(true)} className='menu-position' priority />
+            <Menu open={open} setOpen={setOpen} />
+            <Image src="/utils/list.svg" width={50} height={50} alt="header-image" onClick={toggleDrawer(true)} className='menu' priority />
             <Link href="/">
                 <Image src="/logo.jpeg" width={2880} height={847} alt="header-image" className='logo-position' priority />
             </Link>

@@ -263,8 +263,12 @@ header * li a:hover {
   margin-bottom: 2rem;
 }
 
+.margin-top {
+  margin-top: 4rem;
+}
+
 .user-icon {
-  width: 3%;
+  width: 3rem;
   height: auto;
 }
 
@@ -432,16 +436,18 @@ footer {
   margin: 3rem 0;
 }
 
-.menu-position {
+.menu {
   position: relative;
-  margin-top: 1rem;
-  margin-left: 1.5rem;
+  margin-top: 1%;
+  margin-left: 2%;
   z-index: 1;
+  width: 5%;
+  height: auto;
 }
 
 .logo-position {
   position: relative;
-  margin-top: -6.2rem;
+  margin-top: -6.3%;
   z-index: 0;
 }
 
