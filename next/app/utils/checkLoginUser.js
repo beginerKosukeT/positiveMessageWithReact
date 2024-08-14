@@ -14,7 +14,7 @@ const checkLoginUser = async () => {
             }
             return loginUser
         } catch (error) {
-            alert("ログイン情報の確認に失敗しました。")
+            console.log("ログイン情報の確認に失敗しました。")
             localStorage.removeItem("token")
             const loginUser = {
                 _id: "",

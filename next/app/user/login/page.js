@@ -56,7 +56,7 @@ const Login = () => {
     if (loginUser._id === "") {
         return (
             <div>
-                <h1>ログイン</h1>
+                <h1 className="margin-top">ログイン</h1>
                 <form onSubmit={handleSubmit}>
                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required /><br />
                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="パスワード" required /><br />
@@ -68,7 +68,7 @@ const Login = () => {
     } else {
         return (
             <div>
-                <h1>ログイン</h1>
+                <h1 className="margin-top">ログイン</h1>
                 <div className="login-user">
                     <Image src={`/icons/sg${loginUser.icon}.png`} width={50} height={50} alt="user-icon" className="user-icon" priority />
                     {loginUser.name}さんがログイン済みです。以下を入力して、ユーザーを切り替える事ができます。

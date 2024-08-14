@@ -52,7 +52,6 @@ const ReadSingleItem = (context) => {
                 icon: loginUser.icon
             })
         }
-
         const getSingleItem = async (id) => {
             //投稿の詳細を取得
             const itemResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, { cache: "no-store" })
@@ -60,7 +59,7 @@ const ReadSingleItem = (context) => {
             const singleItem = itemJsonData.singleItem
             setSingleItem(singleItem)
             try {
-                //投稿作者のUserUD取得
+                //投稿の作者のUserUD取得
                 const userIdResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {
                     method: "POST",
                     headers: {
@@ -151,7 +150,7 @@ const ReadSingleItem = (context) => {
                         <div className="margin-left-auto">
                             <form onSubmit={handleSubmit}>
                                 <div className="display-flex align-items-center">
-                                    <Image src={speaking ? "/utils/pause-fill.svg" : "/utils/play-fill.svg"} width={30} height={30} className="margin-right"
+                                    <Image src={speaking ? "/utils/pause-fill.svg" : "/utils/play-fill.svg"} width={30} height={30} className="margin-right hovering-img"
                                         onClick={() => speak(singleItem.message, speaking)} alt="item-image" priority />
                                     <button className="display-flex align-items-center">
                                         <Image src={iliked ? "/utils/hand-thumbs-up-fill.svg" : "/utils/hand-thumbs-up.svg"}

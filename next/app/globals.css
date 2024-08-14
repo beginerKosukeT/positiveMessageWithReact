@@ -135,7 +135,7 @@ a {
 }
 
 .page-title {
-  margin: 3rem 0 4rem;
+  margin: 2rem 0 4rem;
   text-align: center;
 }
 
@@ -170,7 +170,7 @@ button {
 }
 
 button:hover {
-  opacity: 0.7;
+  opacity: 0.5;
   background: linear-gradient(-20deg, #dddddd 5%, #73ffff 95%);
 }
 
@@ -199,7 +199,7 @@ header * li a {
 }
 
 header * li a:hover {
-  opacity: 0.7;
+  opacity: 0.5;
   transition: all 0.3s;
 }
 
@@ -358,8 +358,28 @@ header * li a:hover {
   font-weight: 400;
 }
 
+.hovering-img:hover {
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
 .grid-container-si * a:hover {
-  opacity: 0.7;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.go-back-link {
+  width: 6rem;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(-20deg, #dddddd 20%, #73ffff 80%);
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.go-back-link:hover {
+  opacity: 0.5;
   transition: all 0.3s;
 }
 
@@ -403,7 +423,7 @@ header * li a:hover {
 }
 
 .img-input>button:hover {
-  opacity: 0.7;
+  opacity: 0.5;
   background: linear-gradient(-20deg, #dddddd 5%, #73ffff 95%);
 }
 
@@ -443,6 +463,11 @@ footer {
   z-index: 1;
   width: 5%;
   height: auto;
+}
+
+.hovering-menu:hover {
+  opacity: 0.3;
+  transition: all 0.3s;
 }
 
 .logo-position {

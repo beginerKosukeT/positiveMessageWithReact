@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import useAuth from "../../../utils/useAuth"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const DeleteItem = (context) => {
     const [title, setTitle] = useState("")
@@ -55,6 +56,12 @@ const DeleteItem = (context) => {
         if (loginUser.email === email) {
             return (
                 <div>
+                    <Link href={`/item/readsingle/${context.params.id}`}>
+                        <div className="display-flex align-items-center go-back-link">
+                            <Image src="/utils/chevron-left.svg" width={20} height={20} alt="go-back-link" priority />
+                            <div>戻る</div>
+                        </div>
+                    </Link>
                     <h1 className="page-title">アイテム削除</h1>
                     <h2 className="margin-bottom">下記のアイテムを削除します。取り消しはできません。</h2>
                     <form onSubmit={handleSubmit}>
