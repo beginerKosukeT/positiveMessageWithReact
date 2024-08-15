@@ -6,8 +6,8 @@
   - SPA化や、メッセージ読み上げ機能の動的制御改善、メニューの改善を実施
 
 - ### 公開先
-  - Vercel <a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
-  - AWS Amplify <a href="https://main.dhuz3fbj2ockb.amplifyapp.com">Positive Message with React</a>
+  - Vercel：<a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
+  - AWS Amplify：<a href="https://main.dhuz3fbj2ockb.amplifyapp.com">Positive Message with React</a>
 
 ## 使用技術
 - バックエンド：Next.js(14.2.5)
