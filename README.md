@@ -6,14 +6,15 @@
   - SPA化や、メッセージ読み上げ機能の動的制御改善、メニューの改善を実施
 
 - ### 公開先
-  <a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
+  <a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React (Vercel)</a>
+  <a href="https://main.dhuz3fbj2ockb.amplifyapp.com">Positive Message with React (AWS Amplify)</a>
 
 ## 使用技術
 - バックエンド：Next.js(14.2.5)
 - フロントエンド：React(18.3.1), HTML, CSS
 - DB：MongoDB, Cloudinary
 - トークン：JSON Web Token
-- デプロイ先：Vercel
+- デプロイ先：Vercel, AWS Amplify
 - ハンバーガーメニュー：Material UIのDrawerを使用
 
 ## 画像ダウンロード元
