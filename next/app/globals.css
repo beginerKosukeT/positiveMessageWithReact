@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
 
 /* Common style */
 html,
@@ -95,7 +95,7 @@ html {
 }
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
   color: #333;
   max-width: 1100px;
@@ -203,7 +203,7 @@ header * li a:hover {
   transition: all 0.3s;
 }
 
-@media(max-width: 400px) {
+@media (max-width: 400px) {
   header * li a {
     padding: 0.2rem 1.4rem;
     font-size: 1.2rem;
@@ -278,46 +278,46 @@ header * li a:hover {
   gap: 1rem;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .grid-container-in {
     grid-template-columns: 1fr;
   }
 }
 
-.grid-container-in>a {
+.grid-container-in > a {
   display: block;
   border-radius: 1rem;
   width: 100%;
   border: 0.05rem solid rgb(223, 223, 223);
 }
 
-.grid-container-in>a:hover {
+.grid-container-in > a:hover {
   backdrop-filter: blur(2rem);
   box-shadow: 0.4rem 0.4rem 1.3rem 0.5rem rgba(0, 0, 0, 0.25);
   transition: all 0.3s;
 }
 
-.grid-container-in>a * img,
-.grid-container-in>a>img {
+.grid-container-in > a * img,
+.grid-container-in > a > img {
   width: 20%;
   height: auto;
   object-fit: contain;
 }
 
-.grid-container-in>*>*>div {
+.grid-container-in > * > * > div {
   padding: 1rem 1rem;
   color: #333;
 }
 
-.grid-container-in>*>*>div>h2 {
+.grid-container-in > * > * > div > h2 {
   margin-bottom: 1rem;
 }
 
-.grid-container-in>*>*>div>h3 {
+.grid-container-in > * > * > div > h3 {
   color: #1272e0;
 }
 
-.grid-container-in>*>*>div>p {
+.grid-container-in > * > * > div > p {
   margin-bottom: 0;
 }
 
@@ -328,19 +328,19 @@ header * li a:hover {
   margin-top: 4rem;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .grid-container-si {
     grid-template-columns: 1fr;
   }
 }
 
-.grid-container-si>*>img {
+.grid-container-si > * > img {
   border-radius: 1rem;
   width: 100%;
   height: auto;
 }
 
-.grid-container-si>*>*>*>a {
+.grid-container-si > * > * > * > a {
   color: #1272e0;
 }
 
@@ -348,7 +348,7 @@ header * li a:hover {
   margin: 1.5rem 0;
 }
 
-.grid-container-si>*>*>a {
+.grid-container-si > * > * > a {
   padding: 0.3rem 1.7rem;
   margin-right: 1rem;
   border-radius: 0.5rem;
@@ -383,7 +383,7 @@ header * li a:hover {
   transition: all 0.3s;
 }
 
-@media(max-width: 400px) {
+@media (max-width: 400px) {
   .grid-container-si * a {
     padding: 0.2rem 1.4rem;
     font-size: 1.2rem;
@@ -408,13 +408,13 @@ header * li a:hover {
   gap: 1rem;
 }
 
-.img-input>input {
+.img-input > input {
   display: block;
   background-color: rgb(221, 221, 221);
   padding: 0.4rem 0 0 0.5rem;
 }
 
-.img-input>button {
+.img-input > button {
   padding: 0;
   font-size: 1.4rem;
   margin-bottom: 2rem;
@@ -422,30 +422,30 @@ header * li a:hover {
   background: #afafaf;
 }
 
-.img-input>button:hover {
+.img-input > button:hover {
   opacity: 0.5;
   background: linear-gradient(-20deg, #dddddd 5%, #73ffff 95%);
 }
 
-.img-input>button:disabled,
-.img-input>button[disabled] {
+.img-input > button:disabled,
+.img-input > button[disabled] {
   background: #afafaf;
   color: rgb(0, 0, 0);
 }
 
-.img-input>button:disabled,
-.img-input>button[disabled]:hover {
+.img-input > button:disabled,
+.img-input > button[disabled]:hover {
   opacity: 1;
   cursor: not-allowed;
 }
 
-@media(max-width: 400px) {
+@media (max-width: 400px) {
   .img-input {
     grid-template-columns: 1fr;
     gap: 0rem;
   }
 
-  .img-input>button {
+  .img-input > button {
     margin: -1rem 0 3rem;
     height: 3rem;
   }

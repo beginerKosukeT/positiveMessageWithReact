@@ -1,9 +1,11 @@
-import LoginUser from "./components/loginUser"
+import LoginUser from './components/loginUser';
 const Template = ({ children }) => {
-    return (<>
-        <LoginUser />
-        {children}
-    </>)
-}
+  return (
+    <>
+      <LoginUser />
+      {children}
+    </>
+  );
+};
 
-export default Template
+export default Template;

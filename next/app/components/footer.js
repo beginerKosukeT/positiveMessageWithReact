@@ -1,9 +1,9 @@
 const Footer = () => {
-    return (
-        <footer>
-            <p>@{new Date().getFullYear()} Positive Message</p>
-        </footer>
-    )
-}
+  return (
+    <footer>
+      <p>@{new Date().getFullYear()} Positive Message</p>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
