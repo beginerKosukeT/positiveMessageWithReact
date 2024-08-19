@@ -18,19 +18,26 @@
 - トークン：JSON Web Token
 - ハンバーガーメニュー：Material UIのDrawerを使用
 - トークン：JSON Web Token
+- メッセージ読み上げ：Web Speech API
 
 ## 主な機能
 - ログイン系
   - ログイン
   - 新規ユーザー作成
+  - マイページ
 - 投稿の表示
   - 新作
   - 人気の投稿
   - 検索
+  - 同じ投稿者の投稿
+- お気に入り登録
 - 新規投稿系
   - 新規投稿
   - 過去の投稿編集
   - 過去の投稿削除
+- メッセージ読み上げ
+  - 再生
+  - 一時停止
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
