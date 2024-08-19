@@ -2,8 +2,7 @@
 ![logo-react](https://github.com/beginerKosukeT/positiveMessageWithReact/assets/144611948/b16001ba-d424-425b-b0f1-5f9aec164a44)
 
 - ### プログラム概要
-  - 公開済みの<a href="https://github.com/beginerKosukeT/positiveMessage">Positive Message</a>を、ReactとNext.jsによって再作成
-  - SPA化や、メッセージ読み上げ機能の動的制御改善、メニューの改善を実施
+  - ポジティブなメッセージや元気が出るアドバイスを投稿でき、人工の音声として再生することが可能
 
 - ### 公開先
   - Vercel：<a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
@@ -11,11 +10,27 @@
 
 ## 使用技術
 - バックエンド：Next.js(14.2.5)
-- フロントエンド：React(18.3.1), HTML, CSS
+- フロントエンド：React(18.3.1), JavaScript, CSS
 - DB：MongoDB, Cloudinary
-- トークン：JSON Web Token
 - デプロイ先：Vercel, AWS Amplify
+- 静的解析：ESLint
+- フォーマッター：Prettier
+- トークン：JSON Web Token
 - ハンバーガーメニュー：Material UIのDrawerを使用
+- トークン：JSON Web Token
+
+## 主な機能
+- ログイン系
+  - ログイン
+  - 新規ユーザー作成
+- 投稿の表示
+  - 新作
+  - 人気の投稿
+  - 検索
+- 新規投稿系
+  - 新規投稿
+  - 過去の投稿編集
+  - 過去の投稿削除
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
