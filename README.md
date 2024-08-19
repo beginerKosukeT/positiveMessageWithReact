@@ -9,7 +9,7 @@
   - AWS Amplify：<a href="https://main.dhuz3fbj2ockb.amplifyapp.com">Positive Message with React</a>
 
 ## 使用技術
-- バックエンド：Next.js(14.2.5)
+- バックエンド：Next.js(14.2.4)
 - フロントエンド：React(18.3.1), JavaScript, CSS
 - DB：MongoDB, Cloudinary
 - デプロイ先：Vercel, AWS Amplify
