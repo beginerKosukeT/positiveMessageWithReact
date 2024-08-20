@@ -2,8 +2,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import useAuth from '../../../utils/useAuth';
 
-const MyPosts = (context) => {
+const MyPage = (context) => {
+  const loginUser = useAuth();
   const [favoriteItems, setFavoriteItems] = useState([]);
   const [myItems, setMyItems] = useState([]);
 
@@ -147,4 +149,4 @@ const MyPosts = (context) => {
   }
 };
 
-export default MyPosts;
+export default MyPage;
