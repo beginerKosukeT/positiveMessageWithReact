@@ -49,7 +49,7 @@ const Login = () => {
       }
       alert(jsonData.message);
       if (jsonData.token) {
-        router.push('/');
+        router.push(`/item/mypage/${jsonData.userId}`);
       }
     } catch (err) {
       alert('ログイン失敗');

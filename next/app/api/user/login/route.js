@@ -24,7 +24,11 @@ export async function POST(request) {
           .setProtectedHeader({ alg: 'HS256' })
           .setExpirationTime('1h')
           .sign(secretKey);
-        return NextResponse.json({ message: 'ログイン成功', token: token });
+        return NextResponse.json({
+          message: 'ログイン成功',
+          token: token,
+          userId: savedUserData._id,
+        });
       } else {
         // パスワードが間違っている場合の処理
         return NextResponse.json({
