@@ -31,7 +31,7 @@ const SearchItems = () => {
   };
 
   if (searched) {
-    if (foundItems.length === 0) {
+    if (foundItems.length < 0) {
       return (
         <div>
           <h1 className='page-title'>検索</h1>

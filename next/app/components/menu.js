@@ -14,15 +14,37 @@ import LoginIcon from '@mui/icons-material/Login';
 import CreateIcon from '@mui/icons-material/Create';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import PersonIcon from '@mui/icons-material/Person';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import checkLoginUser from '../utils/checkLoginUser';
 
 const Menu = ({ open, setOpen }) => {
+  const [loginUser, setLoginUser] = useState({
+    _id: '',
+    name: '',
+    email: '',
+    icon: '',
+  });
+  useEffect(() => {
+    const checkToken = async () => {
+      const loginUser = await checkLoginUser();
+      setLoginUser({
+        _id: loginUser._id,
+        name: loginUser.name,
+        email: loginUser.email,
+        icon: loginUser.icon,
+      });
+    };
+    checkToken();
+  }, []);
+
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 210 }} role='presentation' onClick={toggleDrawer(false)}>
       <div className='basic-font-drawer margin-drawer'>一般ユーザー</div>
       <List>
         {[
@@ -72,6 +94,11 @@ const Menu = ({ open, setOpen }) => {
             text: 'ログイン',
             link: '/user/login',
             icon: <LoginIcon sx={{ fontSize: 35 }} color='primary' />,
+          },
+          {
+            text: 'マイページ',
+            link: `/item/mypage/${loginUser._id}`,
+            icon: <PersonIcon sx={{ fontSize: 35 }} color='primary' />,
           },
           {
             text: '新規投稿',

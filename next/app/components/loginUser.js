@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import checkLoginUser from '../utils/checkLoginUser';
+import Link from 'next/link';
 
 const LoginUser = () => {
   const [loginUser, setLoginUser] = useState({
@@ -25,17 +26,19 @@ const LoginUser = () => {
 
   if (loginUser._id !== '') {
     return (
-      <div className='login-user put-on-end margin-bottom'>
-        <Image
-          src={`/icons/sg${loginUser.icon}.png`}
-          width={100}
-          height={100}
-          alt='user-icon'
-          className='user-icon'
-          priority
-        />
-        {loginUser.name}さん
-      </div>
+      <Link href={`/item/mypage/${loginUser._id}`}>
+        <div className='login-user put-on-end margin-bottom'>
+          <Image
+            src={`/icons/sg${loginUser.icon}.png`}
+            width={100}
+            height={100}
+            alt='user-icon'
+            className='user-icon'
+            priority
+          />
+          {loginUser.name}さん
+        </div>
+      </Link>
     );
   }
 };

@@ -11,7 +11,7 @@ export async function GET(request, context) {
     const authorsItems = await ItemModel.find({ email: user.email }).sort({
       createdAt: 'desc',
     });
-    if (authorsItems.length === 0) {
+    if (authorsItems.length < 0) {
       const author = await UserModel.findOne({ email: user.email });
       return NextResponse.json({
         message: 'アイテム読み取り成功（投稿者別）',
