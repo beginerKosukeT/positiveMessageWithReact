@@ -217,6 +217,11 @@ header * li a:hover {
   color: #000000;
 }
 
+.login-user:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
 .basic-font {
   display: flex;
   font-size: 2rem;
