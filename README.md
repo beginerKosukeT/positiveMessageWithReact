@@ -6,7 +6,7 @@
 
 - ### 公開先
   - Vercel：<a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
-  - AWS Amplify：<a href="https://main.d36j3avtiw1t52.amplifyapp.com">Positive Message with React</a>
+  - AWS Amplify：<a href="https://main.d36j3avtiw1t52.amplifyapp.com/user/login">Positive Message with React</a>
 
 ## 使用技術
 - バックエンド：Next.js(14.2.4)
