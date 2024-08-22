@@ -2,7 +2,7 @@
 ![logo-react](https://github.com/beginerKosukeT/positiveMessageWithReact/assets/144611948/b16001ba-d424-425b-b0f1-5f9aec164a44)
 
 - ### プログラム概要
-  - ポジティブなメッセージや元気が出るアドバイスを投稿でき、人工の音声として再生することが可能
+  - Twitterのようにポジティブなメッセージや元気が出るアドバイスを投稿でき、人工の音声として再生することが可能
 
 - ### 公開先
   - Vercel：<a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
