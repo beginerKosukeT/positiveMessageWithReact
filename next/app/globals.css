@@ -229,3 +229,8 @@ ul {
   padding: 3rem;
   border-radius: 5px;
 }
+
+.basic-font {
+  font-size: 2rem;
+  font-weight: 400;
+}
