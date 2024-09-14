@@ -13,17 +13,12 @@ const getBests = async () => {
 
 const Bests = async () => {
   const bests = await getBests();
-  if (bests.length < 1) {
-    return (
-      <div>
-        <h1 className='page-title'>人気の投稿</h1>
+  return (
+    <div>
+      <h1 className='page-title'>人気の投稿</h1>
+      {bests.length < 1 ? (
         <div className='basic-font'>人気の投稿がありません。</div>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <h1 className='page-title'>人気の投稿</h1>
+      ) : (
         <div className='grid-container-in'>
           {bests.map((item) => (
             <Link href={`/item/readsingle/${item._id}`} key={item._id}>
@@ -44,9 +39,9 @@ const Bests = async () => {
             </Link>
           ))}
         </div>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 };
 
 export default Bests;

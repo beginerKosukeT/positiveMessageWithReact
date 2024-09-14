@@ -4,6 +4,7 @@ import Image from 'next/image';
 import useAuth from '../../../utils/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import styles from '../page.module.css';
 
 const DeleteItem = (context) => {
   const [title, setTitle] = useState('');
@@ -63,12 +64,12 @@ const DeleteItem = (context) => {
       return (
         <div>
           <Link href={`/item/readsingle/${context.params.id}`}>
-            <div className='display-flex align-items-center go-back-link'>
+            <div className={styles.goBackLink}>
               <Image
                 src='/utils/chevron-left.svg'
                 width={20}
                 height={20}
-                alt='go-back-link'
+                alt='goBackLink'
                 priority
               />
               <div>戻る</div>
@@ -79,7 +80,9 @@ const DeleteItem = (context) => {
             下記のアイテムを削除します。取り消しはできません。
           </h2>
           <form onSubmit={handleSubmit}>
-            <div className='grid-container-si border margin-bottom'>
+            <div
+              className={`${styles.gridContainerSingle} ${styles.border} margin-bottom`}
+            >
               <div>
                 <Image
                   src={image}

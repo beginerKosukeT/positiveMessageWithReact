@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import checkLoginUser from '../utils/checkLoginUser';
 import Link from 'next/link';
+import styles from './components.module.css';
 
 const LoginUser = () => {
   const [loginUser, setLoginUser] = useState({
@@ -26,8 +27,13 @@ const LoginUser = () => {
 
   if (loginUser._id !== '') {
     return (
-      <Link href={`/item/mypage/${loginUser._id}`}>
-        <div className='login-user put-on-end margin-bottom'>
+      <Link
+        href={`/item/mypage/${loginUser._id}`}
+        className={styles.loginUserMargin}
+      >
+        <div
+          className={`login-user ${styles.putOnEnd} ${styles.loginUserDetail}`}
+        >
           <Image
             src={`/icons/sg${loginUser.icon}.png`}
             width={100}

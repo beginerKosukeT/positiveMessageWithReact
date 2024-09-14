@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './components.module.css';
 
 const ImgInput = (props) => {
   const [imageFile, setImageFile] = useState('');
@@ -21,7 +22,7 @@ const ImgInput = (props) => {
     }
   };
   return (
-    <div className='img-input'>
+    <div className={styles.imgInput}>
       <input
         type='file'
         onChange={(e) => setImageFile(e.target.files[0])}

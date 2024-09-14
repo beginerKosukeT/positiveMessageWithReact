@@ -2,37 +2,43 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Menu from './menu';
+import Menu from './menu/menu';
+import styles from './components.module.css';
+import Descripton from '../components/Description/description';
+import cx from 'classnames';
 
-const Header = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
-
+const Header = (props) => {
   return (
     <header>
-      <Menu open={open} setOpen={setOpen} />
-      <Image
-        src='/utils/list.svg'
-        width={50}
-        height={50}
-        alt='menu-image'
-        onClick={toggleDrawer(true)}
-        className='menu hovering-menu'
-        priority
-      />
-      <Link href='/'>
+      <div className={styles.headerTop}>
+        <Link href='/' className={styles.logoLink}>
+          <h2>Positive Message</h2>
+        </Link>
+        <Menu />
+      </div>
+      <section
+        className={cx(
+          styles.headerContainer,
+          props.inLoginPage ? styles.largePadding : styles.smallPadding,
+        )}
+      >
+        {props.inLoginPage && (
+          <Descripton
+            title='ポジティブな言葉を聞いて、いつでも前向きに'
+            sub='ポジティブなメッセージを投稿・読み上げできるサービスです。'
+          />
+        )}
         <Image
-          src='/logo.jpeg'
-          width={2880}
-          height={847}
-          alt='header-image'
-          className='logo-position'
-          priority
+          className={cx(
+            styles.bgimg,
+            props.inLoginPage ? styles.largeHeight : styles.smallHeight,
+          )}
+          src='/utils/img-mv.jpg'
+          alt=''
+          width={4000}
+          height={1200}
         />
-      </Link>
+      </section>
     </header>
   );
 };

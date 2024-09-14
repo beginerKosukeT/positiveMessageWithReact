@@ -1,0 +1,23 @@
+.loginSwitchInformation {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 2rem;
+}
+
+.mainContent {
+  max-width: 500px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: -30px;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+}
+
+.flex {
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 400;
+  align-items: center;
+}

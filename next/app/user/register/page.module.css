@@ -1,0 +1,35 @@
+.gridContainerIcon {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+  .gridContainerIcon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.hoveringIcon:hover {
+  backdrop-filter: blur(2rem);
+  box-shadow: 0.4rem 0.4rem 1.3rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  border-radius: 0.5rem;
+}
+
+.selectedIcon {
+  outline: 1.5px solid #73ffff;
+  outline-offset: -1.5px;
+  border-radius: 0.5rem;
+}
+
+.mainContent {
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: -30px;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+}

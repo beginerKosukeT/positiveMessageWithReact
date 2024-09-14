@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import checkLoginUser from '../../../utils/checkLoginUser';
 import { useRouter } from 'next/navigation';
+import styles from '../page.module.css';
 
 const ReadSingleItem = (context) => {
   const [singleItem, setSingleItem] = useState({});
@@ -149,7 +150,7 @@ const ReadSingleItem = (context) => {
 
   if (load) {
     return (
-      <div className='grid-container-si'>
+      <div className={styles.gridContainerSingle}>
         <div>
           <Image
             src={singleItem.image}
@@ -165,7 +166,7 @@ const ReadSingleItem = (context) => {
             <h3>
               <Link href={`/item/author/${userId}`}>{singleItem.author}</Link>
             </h3>
-            <div className='margin-left-auto'>
+            <div className={styles.marginLeftAuto}>
               <form onSubmit={handleSubmit}>
                 <div className='display-flex align-items-center'>
                   <Image
@@ -176,7 +177,7 @@ const ReadSingleItem = (context) => {
                     }
                     width={30}
                     height={30}
-                    className='margin-right hovering-img'
+                    className={`${styles.marginRight} ${styles.hoveringImg}`}
                     onClick={() => speak(singleItem.message, speaking)}
                     alt='item-image'
                     priority

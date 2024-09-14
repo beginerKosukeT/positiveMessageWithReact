@@ -1,0 +1,126 @@
+.imgInput {
+  display: grid;
+  grid-template-columns: 0.8fr 0.2fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.imgInput > input {
+  display: block;
+  background-color: rgb(221, 221, 221);
+}
+
+.imgInput > button {
+  padding: 0;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  height: 3.6rem;
+  background: #afafaf;
+}
+
+.imgInput > button:hover {
+  opacity: 0.5;
+  background: linear-gradient(-20deg, #dddddd 5%, #73ffff 95%);
+}
+
+.imgInput > button:disabled,
+.imgInput > button[disabled] {
+  background: #afafaf;
+  color: rgb(0, 0, 0);
+}
+
+.imgInput > button:disabled,
+.imgInput > button[disabled]:hover {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+@media (max-width: 400px) {
+  .imgInput {
+    grid-template-columns: 1fr;
+    gap: 0rem;
+  }
+
+  .imgInput > button {
+    margin: -1rem 0 2rem;
+    height: 3rem;
+  }
+}
+
+.putOnEnd {
+  justify-content: flex-end;
+}
+
+.footer {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.headerImg {
+  width: 100%;
+  height: auto;
+}
+
+.logoLink {
+  color: white;
+  padding: 3px 0;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--header-padding) var(--header-padding) 0;
+  z-index: 100;
+  align-items: center;
+}
+
+.headerContainer {
+  position: relative;
+  top: var(--header-container-slide);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: #fff;
+  overflow: hidden;
+  padding: 200px 0;
+  z-index: -1;
+}
+
+.largePadding {
+  padding: 200px 0;
+  margin-bottom: -186px;
+}
+
+.smallPadding {
+  padding: 75px 0;
+  margin-bottom: -56px;
+}
+
+.bgimg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.largeHeight {
+  height: 400px;
+}
+
+.smallHeight100 {
+  height: 150px;
+}
+
+.loginUserDetail {
+  margin-right: 20px;
+  margin-bottom: -106px;
+  margin-top: 76px;
+  color: white;
+}

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import styles from './page.module.css';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -47,7 +48,7 @@ const Register = () => {
     <div>
       <h1>新規ユーザー登録</h1>
       <form onSubmit={handleSubmit}>
-        <div className='grid-container-icon margin-bottom'>
+        <div className={`${styles.gridContainerIcon} margin-bottom`}>
           {icons.map((num) => (
             <Image
               src={`/icons/sg${num}.png`}
@@ -56,7 +57,9 @@ const Register = () => {
               alt={`user-icon-${num}`}
               key={`user-icon-${num}`}
               priority
-              className={num === icon ? 'selected-icon' : 'hovering-icon'}
+              className={
+                num === icon ? styles.selectedIcon : styles.hoveringIcon
+              }
               onClick={() => setIcon(num)}
             />
           ))}

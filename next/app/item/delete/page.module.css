@@ -1,0 +1,70 @@
+.border {
+  border-radius: 1rem;
+  border: 0.05rem solid rgb(223, 223, 223);
+}
+
+.gridContainerSingle {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+@media (max-width: 600px) {
+  .gridContainerSingle {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .gridContainerSingle * a {
+    padding: 0.2rem 1.4rem;
+    font-size: 1.2rem;
+  }
+}
+
+.gridContainerSingle > * > img {
+  border-radius: 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.gridContainerSingle > * > * > * > a {
+  color: #1272e0;
+}
+
+.gridContainerSingle hr {
+  margin: 1.5rem 0;
+}
+
+.gridContainerSingle > * > * > a {
+  padding: 0.3rem 1.7rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(-20deg, #dddddd 20%, #73ffff 80%);
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.gridContainerSingle * a:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.goBackLink {
+  width: 6rem;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(-20deg, #dddddd 20%, #73ffff 80%);
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.goBackLink:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
