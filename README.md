@@ -39,7 +39,7 @@
   - 再生
   - 一時停止
 - その他
-  -　レスポンシブ表示 
+  - レスポンシブ表示 
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
