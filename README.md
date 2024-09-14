@@ -16,8 +16,6 @@
 - 静的解析：ESLint
 - フォーマッター：Prettier
 - トークン：JSON Web Token
-- ハンバーガーメニュー：Material UIのDrawerを使用
-- トークン：JSON Web Token
 - メッセージ読み上げ：Web Speech API
 
 ## 主な機能
@@ -40,6 +38,8 @@
 - メッセージ読み上げ
   - 再生
   - 一時停止
+- その他
+  -　レスポンシブ表示 
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
