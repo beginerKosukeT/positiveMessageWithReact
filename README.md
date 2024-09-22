@@ -10,13 +10,14 @@
   
 ## 使用技術
 - バックエンド：Next.js(14.2.4)
-- フロントエンド：React(18.3.1), JavaScript, CSS
+- フロントエンド：React(18.3.1), JavaScript, TypeScript, CSS
 - DB：MongoDB, Cloudinary
 - デプロイ先：Vercel, AWS Amplify
 - 静的解析：ESLint
 - フォーマッター：Prettier
 - トークン：JSON Web Token
 - メッセージ読み上げ：Web Speech API
+- 問い合わせ：HubSpot
 
 ## 主な機能
 - ログイン系
@@ -38,6 +39,7 @@
 - メッセージ読み上げ
   - 再生
   - 一時停止
+- 問い合わせ
 - その他
   - レスポンシブ表示 
 
