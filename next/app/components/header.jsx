@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Menu from './menu/menu';
 import styles from './components.module.css';
-import Descripton from '../components/Description/description';
+import Descripton from './Description/description';
 import cx from 'classnames';
 
 const Header = (props) => {

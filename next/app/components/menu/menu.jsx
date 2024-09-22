@@ -123,6 +123,18 @@ const Menu = () => {
               <h4>新規投稿</h4>
             </Link>
           </li>
+          <li>
+            <Link href='/contact' className={styles.item} onClick={close}>
+              <Image
+                src='/utils/menu/question-lg.svg'
+                alt='問い合わせ'
+                width={16}
+                height={16}
+                className={styles.marginRight}
+              />
+              <h4>問い合わせ</h4>
+            </Link>
+          </li>
         </ul>
         <button
           className={cx(styles.button, styles.closeButton)}

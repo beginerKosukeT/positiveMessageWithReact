@@ -1,0 +1,10 @@
+.mainContent {
+  max-width: 600px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: -30px;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+}
