@@ -20,28 +20,33 @@
 - 問い合わせ：HubSpot
 
 ## 主な機能
-- ログイン系
-  - ログイン
-  - 新規ユーザー作成
-- マイページ
-  - お気に入りした投稿の表示
-  - 作成した投稿の表示
-- 投稿の表示
-  - 新作
-  - 人気の投稿
-  - 検索
-  - 投稿者毎の投稿一覧
-- お気に入り登録
-- 新規投稿系
-  - 新規投稿
-  - 過去の投稿編集
-  - 過去の投稿削除
-- メッセージ読み上げ
-  - 再生
-  - 一時停止
-- 問い合わせ
-- その他
-  - レスポンシブ表示 
+| ログイン | 新規ユーザー登録 |
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 08 06" src="https://github.com/user-attachments/assets/cfa41037-3ae3-4c8c-ab99-c69d21a49dd3" />|<img width="1440" alt="スクリーンショット 2025-01-03 4 10 57" src="https://github.com/user-attachments/assets/00437d28-0baa-45a4-8efc-e34ef1ed5a07" />|
+
+| 新作 | 人気の投稿 |
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 09 42" src="https://github.com/user-attachments/assets/1442b420-aba0-46c2-8254-228c19ec9226" />|<img width="1440" alt="スクリーンショット 2025-01-03 4 09 51" src="https://github.com/user-attachments/assets/77bf7bac-bc19-459c-b0f0-1f01b06fec46" />|
+
+| 検索 | 投稿者毎の投稿一覧 |
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 10 13" src="https://github.com/user-attachments/assets/ebe648b6-2fd7-464f-bf2b-3d323b890bf4" />|<img width="1440" alt="スクリーンショット 2025-01-03 4 13 17" src="https://github.com/user-attachments/assets/b20dbf71-c826-4522-b06f-496fbbbe6776" />|
+
+| 過去の投稿編集 |過去の投稿削除|
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 10 35" src="https://github.com/user-attachments/assets/09cdeb1d-ff0e-46f0-b2c7-423463fa7f9e" />|<img width="1440" alt="スクリーンショット 2025-01-03 4 10 45" src="https://github.com/user-attachments/assets/8c145328-a557-4b4f-b80e-fbbfec0c495f" />|
+
+| 新規投稿 |問い合わせ|
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 36 44" src="https://github.com/user-attachments/assets/d8e2e0e8-0ba5-411c-8d41-b89fc719ef32" />|<img width="1440" alt="スクリーンショット 2025-01-03 4 11 13" src="https://github.com/user-attachments/assets/cd4c605a-8e6e-4118-bd1b-4aee57c26872" />|
+
+| メッセージ読み上げ・一時停止 |お気に入り登録|
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 08 55" src="https://github.com/user-attachments/assets/4057d337-06da-4519-81de-df9c59bc25b9" />|<img width="1440" alt="スクリーンショット 2025-01-03 4 08 55" src="https://github.com/user-attachments/assets/4057d337-06da-4519-81de-df9c59bc25b9" />|
+
+| マイページ(お気に入り・作成済み投稿) |レスポンシブ表示|
+| - | - |
+|<img width="1440" alt="スクリーンショット 2025-01-03 4 08 30" src="https://github.com/user-attachments/assets/2feb000f-c617-4b68-9795-544b6ea27b21" />|<img width="574" alt="スクリーンショット 2025-01-03 4 43 57" src="https://github.com/user-attachments/assets/2dc2bb0b-2702-410c-8974-e7fe767de190" />|
 
 ## 画像ダウンロード元
 - <a href="https://www.san-x.co.jp/sumikko/profile/">すみっコぐらしofficial web site プロフィール</a>
