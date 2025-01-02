@@ -5,8 +5,8 @@
   - Twitterのようにポジティブなメッセージや元気が出るアドバイスを投稿でき、人工の音声として再生することが可能
 
 - ### 公開先
-  - Vercel：<a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>
-  - AWS Amplify：<a href="https://main.d36j3avtiw1t52.amplifyapp.com/user/login">Positive Message with React</a>
+  - Vercel：<a href="https://positive-message-with-react.vercel.app/user/login">Positive Message with React</a>(公開停止)
+  - AWS Amplify：<a href="https://main.d36j3avtiw1t52.amplifyapp.com/user/login">Positive Message with React</a>(公開停止)
   
 ## 使用技術
 - バックエンド：Next.js(14.2.4)
